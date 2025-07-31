@@ -182,7 +182,7 @@ export const translations = {
     sv: "Fågeln upptäckt vid",
   },
   seconds: {
-    de: "Sekunden"
+    de: "Sekunden",
     en: "seconds",
     no: "sekunder",
     sv: "sekunder",
