@@ -6,7 +6,7 @@ import { Fragment } from "react";
 const DEFAULT_LANGUAGE_CODE = "de";
 
 // This list is identical to Birdweather's language list
-const languages = [
+const allLanguages = [
   { code: "en", name: "English" },
   { code: "no", name: "Norsk" },
   { code: "af", name: "Afrikaans" },
