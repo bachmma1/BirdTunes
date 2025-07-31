@@ -1,5 +1,8 @@
 export type Locale = "de" | "en" | "no" | "sv";
 
+// Default language (e. g. "de" for german)
+export const DEFAULT_LANGUAGE_CODE = "de";
+
 export const translations = {
   pageDescription: {
     de: "Aufnahmestation für Vögel in der Umgebung",
