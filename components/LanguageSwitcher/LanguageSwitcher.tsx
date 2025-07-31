@@ -2,6 +2,9 @@ import { useRouter } from "next/router";
 import styles from "./LanguageSwitcher.module.scss";
 import { Fragment } from "react";
 
+// Default language (e. g. "de" for german)
+const DEFAULT_LANGUAGE_CODE = "de";
+
 // This list is identical to Birdweather's language list
 const languages = [
   { code: "en", name: "English" },
@@ -33,9 +36,17 @@ const languages = [
   { code: "uk", name: "Ukrainian" },
 ];
 
+// Sort, as DEFAULT_LANGUAGE comes first in list
+const languages = [
+  ...allLanguages.filter(lang => lang.code === DEFAULT_LANGUAGE_CODE),
+  ...allLanguages.filter(lang => lang.code !== DEFAULT_LANGUAGE_CODE),
+];
+
 export const LanguageSwitcher = () => {
   const router = useRouter();
-  const currentLang = router.query.lang || "en";
+  const currentLang = typeof router.query.lang === "string"
+    ? router.query.lang
+    : DEFAULT_LANGUAGE_CODE;
 
   const handleLanguageChange = async (
     e: React.ChangeEvent<HTMLSelectElement>
