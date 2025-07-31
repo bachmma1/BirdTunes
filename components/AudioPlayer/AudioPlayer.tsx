@@ -54,8 +54,19 @@ export const AudioPlayer = ({ url, startTime = 0 }: AudioPlayerProps) => {
 
     if (!isLoaded) {
       audioRef.current.src = url;
+      audioRef.current.onloadedmetadata = () => {
+        // Set currentTime when metadata are available
+        if (startTime > 0) {
+          audioRef.current!.currentTime = startTime;
+        }
+        audioRef.current!.play();
+        setIsPlaying(true);
+      };
       setIsLoaded(true);
-    }	
+      // important, to trigger onloadedmetadata
+      audioRef.current.load(); 
+      return;
+    }
 
     if (isPlaying) {
       audioRef.current.pause();
