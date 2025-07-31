@@ -52,30 +52,33 @@ export const AudioPlayer = ({ url, startTime = 0 }: AudioPlayerProps) => {
       window.dispatchEvent(new Event(playerStartedEvent));
     }
 
+    const audio = audioRef.current;
+
+    // only once on initial load
     if (!isLoaded) {
-      audioRef.current.src = url;
-      audioRef.current.onloadedmetadata = () => {
+      audio.src = url;
+      audio.onloadedmetadata = () => {
         // Set currentTime when metadata are available
         if (startTime > 0) {
-          audioRef.current!.currentTime = startTime;
+          audio.currentTime = startTime;
         }
-        audioRef.current!.play();
+        audio.play();
+        audio.controls = true;
         setIsPlaying(true);
       };
       setIsLoaded(true);
       // important, to trigger onloadedmetadata
-      audioRef.current.load(); 
-      return;
-    }
-
-    if (isPlaying) {
-      audioRef.current.pause();
-      audioRef.current.controls = false;
+      audio.load(); 
     } else {
-      audioRef.current.controls = true;
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
+      if (isPlaying) {
+        audio.pause();
+        audio.controls = false;
+      } else {
+        audio.controls = true;
+        audio.play();
+      }
+      setIsPlaying(!isPlaying);
+    }    
   };
 
   return (
