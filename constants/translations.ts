@@ -66,13 +66,13 @@ export const translations = {
   },
   detections: {
     en: "detections",
-    de: "Observationen",
+    de: "Erkennungen",
     no: "observasjoner",
     sv: "observationer",
   },
   last: {
     en: "Last",
-    de: "Zuletzt",
+    de: "Letzte",
     no: "Siste",
     sv: "Sista",
   },
