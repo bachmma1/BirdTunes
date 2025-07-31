@@ -16,6 +16,7 @@ import { useMemo } from "react";
 import { LanguageSwitcher } from "components/LanguageSwitcher";
 import { GetServerSideProps } from "next";
 import { NewSpecies } from "components/NewSpecies/NewSpecies";
+import { DEFAULT_LANGUAGE_CODE } from "constants/translations";
 
 export default function Home() {
   const router = useRouter();
@@ -25,7 +26,7 @@ export default function Home() {
 
   // Only get params after router is ready
   const stationId = isReady ? searchParams.get("station") || STATION_ID : null;
-  const lang = isReady ? searchParams.get("lang") || "en" : null;
+  const lang = isReady ? searchParams.get("lang") || DEFAULT_LANGUAGE_CODE : null;
   const period = isReady ? searchParams.get("period") || "all" : null;
   const sort = isReady ? searchParams.get("sort") || "active" : null;
 

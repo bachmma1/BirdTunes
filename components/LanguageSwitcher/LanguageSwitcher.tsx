@@ -1,9 +1,7 @@
 import { useRouter } from "next/router";
 import styles from "./LanguageSwitcher.module.scss";
 import { Fragment } from "react";
-
-// Default language (e. g. "de" for german)
-const DEFAULT_LANGUAGE_CODE = "de";
+import { DEFAULT_LANGUAGE_CODE } from "constants/translations";
 
 // This list is identical to Birdweather's language list
 const allLanguages = [
