@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  birdtunes:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NODE_ENV: production  # ⬅️ ändern zu "development" für Dev-Modus
+    container_name: birdtunes
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production  # ⬅️ ebenfalls hier ggf. anpassen
+    volumes:
+      # Mount optional nur für Development (Code-Änderungen live übernehmen)
+      # Kommentiere diese Zeile aus für production!
+      # - .:/app
