@@ -170,7 +170,7 @@ export const translations = {
     sv: "dagar",
   },
   ago: {
-    de: "seit",
+    de: "her",
     en: "ago",
     no: "siden",
     sv: "sedan",
