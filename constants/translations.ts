@@ -65,13 +65,13 @@ export const translations = {
     sv: "Gå till Wikipedia",
   },
   detections: {
-    de: "Observationen",
+    de: "Erkennungen",
     en: "detections",
     no: "observasjoner",
     sv: "observationer",
   },
   last: {
-    de: "Zuletzt",
+    de: "Letzte",
     en: "Last",
     no: "Siste",
     sv: "Sista",
