@@ -3,7 +3,7 @@ name: Publish Docker image to Docker Hub
 on:
   push:
     branches:
-      - main  # oder dein Standard-Branch
+      - dev
 
 jobs:
   build-and-push:
@@ -24,4 +24,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: bachmma1/birdtunes:latest
+          tags: bachmma1/birdtunes:dev
